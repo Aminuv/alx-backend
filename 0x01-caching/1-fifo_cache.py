@@ -18,7 +18,7 @@ class FIFOCache(BaseCaching):
 
     def put(self, key, item):
         """
-          Cache a key-value pair
+          Cache the key-value pair
         """
         if key is None or item is None:
             pass
