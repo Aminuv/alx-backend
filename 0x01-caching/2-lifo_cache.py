@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" BaseCaching module"""
+""" the BaseCaching module"""
 from base_caching import BaseCaching
 
 
@@ -7,7 +7,7 @@ class LIFOCache(BaseCaching):
     """FIFOCache defines a FIFO caching system"""
 
     def __init__(self):
-        """Initialize the class with the parent's init method"""
+        """class initialize with the parent's init method"""
         super().__init__()
         self.order = []
 
