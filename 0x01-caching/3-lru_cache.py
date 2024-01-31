@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-""" BaseCaching module"""
+""" the BaseCaching mdl"""
 from base_caching import BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """FIFOCache defines a FIFO caching system"""
+    """the FIFOCache defines at FIFO"""
     def __init__(self):
         """Initialize the class with the parent's init method"""
         super().__init__()
