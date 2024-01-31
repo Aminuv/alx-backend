@@ -12,7 +12,7 @@ class LIFOCache(BaseCaching):
         self.order = []
 
     def put(self, key, item):
-        """Cache a key-value pair"""
+        """Cache the key-value pair"""
         if key is None or item is None:
             pass
         else:
@@ -27,7 +27,7 @@ class LIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """Return the value linked to a given key, or None"""
+        """Return the value"""
         if key is not None and key in self.cache_data.keys():
             return self.cache_data[key]
         return None
