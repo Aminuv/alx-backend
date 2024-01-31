@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Function to create class 'FIFOCache', inherits from 'BaseCaching'. """
+""" Function to create class FIFOCache, inherits from BaseCaching. """
 from base_caching import BaseCaching
 
 
