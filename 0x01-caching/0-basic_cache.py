@@ -13,7 +13,7 @@ class BasicCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """ function get """
+        """ Get """
         if key in self.cache_data:
             return self.cache_data[key]
         return None
