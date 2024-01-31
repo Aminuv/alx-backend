@@ -1,34 +1,41 @@
-#!/usr/bin/python3
-""" Function to create class LIFOCache, inherits from BaseCaching."""
-
-BaseCaching = __import__('base_caching').BaseCaching
+#!/usr/bin/env python3
+""" BaseCaching module"""
+from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """ LIFOCache class"""
+    """
+    FIFOCache defines a FIFO caching system
+    """
 
     def __init__(self):
-        """ Classe initializes """
+        """
+        Initialize the class with the parent's init method
+        """
         super().__init__()
-        self.key_indexes = []
+        self.order = []
 
     def put(self, key, item):
-        """ Function """
-        if key and item:
-            if len(self.cache_data) >= self.MAX_ITEMS:
-                if key in self.cache_data:
-                    del self.cache_data[key]
-                    self.key_indexes.remove(key)
-                else:
-                    del self.cache_data[self.key_indexes[self.MAX_ITEMS - 1]]
-                    item_discarded = self.key_indexes.pop(self.MAX_ITEMS - 1)
-                    print("DISCARD:", item_discarded)
-
+        """
+        Cache a key-value pair
+        """
+        if key is None or item is None:
+            pass
+        else:
+            length = len(self.cache_data)
+            if length >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
+                print("DISCARD: {}".format(self.order[-1]))
+                del self.cache_data[self.order[-1]]
+                del self.order[-1]
+            if key in self.order:
+                del self.order[self.order.index(key)]
+            self.order.append(key)
             self.cache_data[key] = item
-            self.key_indexes.append(key)
 
     def get(self, key):
-        """ Get """
-        if key in self.cache_data:
+        """
+        Return the value linked to a given key, or None
+        """
+        if key is not None and key in self.cache_data.keys():
             return self.cache_data[key]
         return None
