@@ -1,26 +1,19 @@
 #!/usr/bin/env python3
-""" BaseCaching module
-"""
+""" Func BaseCaching mdl"""
 from base_caching import BaseCaching
 
 
 class LFUCache(BaseCaching):
-    """
-    FIFOCache defines a FIFO caching system
-    """
+    """the FIFOCache defines a FIFO caching system"""
 
     def __init__(self):
-        """
-        Initialize the class with the parent's init method
-        """
+        """class initialize with the parent's"""
         super().__init__()
         self.usage = []
         self.frequency = {}
 
     def put(self, key, item):
-        """
-        Cache a key-value pair
-        """
+        """Cache the key-value pair"""
         if key is None or item is None:
             pass
         else:
@@ -55,9 +48,7 @@ class LFUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """
-        Return the value linked to a given key, or None
-        """
+        """Return the value"""
         if key is not None and key in self.cache_data.keys():
             del self.usage[self.usage.index(key)]
             self.usage.append(key)
