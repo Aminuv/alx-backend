@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
-""" BaseCaching module
+""" the BaseCaching module
 """
 from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
     """
-    FIFOCache defines a FIFO caching system
+      FIFOCache defines a FIFO caching system
     """
 
     def __init__(self):
         """
-        Initialize the class with the parent's init method
+          Initialize the class with the parent's init method
         """
         super().__init__()
         self.order = []
 
     def put(self, key, item):
         """
-        Cache a key-value pair
+          Cache a key-value pair
         """
         if key is None or item is None:
             pass
@@ -33,7 +33,7 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """
-        Return the value linked to a given key, or None
+          Return the value linked to a given key, or None
         """
         if key is not None and key in self.cache_data.keys():
             return self.cache_data[key]
