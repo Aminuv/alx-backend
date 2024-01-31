@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" class BasicCache inherits from BaseCaching. """
+""" Class BasicCache inherits from BaseCaching """
 
 BaseCaching = __import__('base_caching').BaseCaching
 
@@ -13,7 +13,7 @@ class BasicCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """ Get """
+        """ function get """
         if key in self.cache_data:
             return self.cache_data[key]
         return None
