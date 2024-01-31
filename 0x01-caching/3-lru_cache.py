@@ -6,12 +6,12 @@ from base_caching import BaseCaching
 class LRUCache(BaseCaching):
     """the FIFOCache defines at FIFO"""
     def __init__(self):
-        """Initialize the class with the parent's init method"""
+        """ass initialize with the parent's init method"""
         super().__init__()
         self.usage = []
 
     def put(self, key, item):
-        """Cache a key-value pair"""
+        """Cache the key-value pair"""
         if key is None or item is None:
             pass
         else:
@@ -26,7 +26,7 @@ class LRUCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """Return the value linked to a given key, or None"""
+        """Return the value"""
         if key is not None and key in self.cache_data.keys():
             del self.usage[self.usage.index(key)]
             self.usage.append(key)
