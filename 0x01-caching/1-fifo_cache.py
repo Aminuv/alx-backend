@@ -11,7 +11,7 @@ class FIFOCache(BaseCaching):
 
     def __init__(self):
         """
-          Initialize the class with the parent's init method
+          the cnitialize with the parent's init method
         """
         super().__init__()
         self.order = []
@@ -33,7 +33,7 @@ class FIFOCache(BaseCaching):
 
     def get(self, key):
         """
-          the Return 
+          the Return
         """
         if key is not None and key in self.cache_data.keys():
             return self.cache_data[key]
