@@ -1,34 +1,31 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ Function to create class 'FIFOCache', inherits from 'BaseCaching'. """
-
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """ The FIFOCache classe's"""
+    """The FIFOCache class"""
 
     def __init__(self):
-        """ Class initializes """
+        """Class initializes"""
         super().__init__()
-        self.key_indexes = []
+        self.order = []
 
     def put(self, key, item):
-        """ Function """
-        if key and item:
-            if key in self.cache_data:
-                self.cache_data[key] = item
-                return
-
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-                item_discarded = self.key_indexes.pop(0)
-                del self.cache_data[item_discarded]
-                print("DISCARD:", item_discarded)
-
+        """Function"""
+        if key is None or item is None:
+            pass
+        else:
+            length = len(self.cache_data)
+            if length >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
+                print("DISCARD: {}".format(self.order[0]))
+                del self.cache_data[self.order[0]]
+                del self.order[0]
+            self.order.append(key)
             self.cache_data[key] = item
-            self.key_indexes.append(key)
 
     def get(self, key):
-        """ get """
-        if key in self.cache_data:
+        """Return"""
+        if key is not None and key in self.cache_data.keys():
             return self.cache_data[key]
         return None
