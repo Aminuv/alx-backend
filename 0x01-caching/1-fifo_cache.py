@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
-""" Function to create class FIFOCache, inherits from BaseCaching. """
+""" BaseCaching module
+"""
 from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """The FIFOCache class"""
+    """
+    FIFOCache defines a FIFO caching system
+    """
 
     def __init__(self):
-        """Class initializes"""
+        """
+        Initialize the class with the parent's init method
+        """
         super().__init__()
         self.order = []
 
     def put(self, key, item):
-        """Function"""
+        """
+        Cache a key-value pair
+        """
         if key is None or item is None:
             pass
         else:
@@ -25,7 +32,9 @@ class FIFOCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
-        """Return"""
+        """
+        Return the value linked to a given key, or None
+        """
         if key is not None and key in self.cache_data.keys():
             return self.cache_data[key]
         return None
